@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model users {
+  id             Int     @id @default(autoincrement())
+  login          String  @unique @db.VarChar(255)
+  hashed_password String  @db.VarChar(32)
+  lists          lists[]
+}
+
+model lists {
+  id       Int     @id @default(autoincrement())
+  list_name String  @db.VarChar(255)
+  list_rule rules?
+  task     tasks[]
+  users     users   @relation(fields: [user_id], references: [id])
+  user_id   Int
+}
+
+model rules {
+  id              Int     @id @default(autoincrement())
+  allowed_to_create Boolean
+  allowed_to_read   Boolean
+  allowed_to_update Boolean
+  allowed_to_delete Boolean
+  lists           lists   @relation(fields: [list_id], references: [id])
+  list_id          Int     @unique
+}
+
+model tasks {
+  id              Int    @id @default(autoincrement())
+  task_description String
+  lists           lists  @relation(fields: [task_id], references: [id])
+  task_id          Int
+}

@@ -1,0 +1,60 @@
+{
+  "name": "test-backend",
+  "version": "1.0.0",
+  "description": "Todo lists on koa and prisma",
+  "main": "./dist/index.js",
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon ./src/server.ts",
+    "test": "jest",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "Mikhail Litovchenko",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^4.6.1",
+    "crypto-js": "^4.1.1",
+    "dotenv": "^16.0.3",
+    "joi": "^17.7.0",
+    "koa": "^2.13.4",
+    "koa-router": "^12.0.0",
+    "pg": "^8.8.0"
+  },
+  "devDependencies": {
+    "@jest/globals": "^29.3.1",
+    "@types/crypto-js": "^4.1.1",
+    "@types/jest": "^29.2.3",
+    "@types/koa": "^2.13.5",
+    "@types/koa-bodyparser": "^4.3.10",
+    "@types/koa-router": "^7.4.4",
+    "@types/pg": "^8.6.5",
+    "@types/supertest": "^2.0.12",
+    "koa-body": "^6.0.1",
+    "nodemon": "^2.0.20",
+    "prisma": "^4.6.1",
+    "supertest": "^6.3.1",
+    "ts-jest": "^29.0.3",
+    "ts-node": "^10.9.1"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "json",
+      "ts",
+      "tsx"
+    ],
+    "collectCoverageFrom": [
+      "**/*.{ts,js}"
+    ],
+    "transform": {
+      "\\.ts$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(js|ts)x?$",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/dist/"
+    ]
+  }
+}

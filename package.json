@@ -2,7 +2,7 @@
   "name": "test-backend",
   "version": "1.0.0",
   "description": "Todo lists on koa and prisma",
-  "main": "./dist/index.js",
+  "main": "./dist/server.js",
   "scripts": {
     "start": "node .",
     "dev": "nodemon ./src/server.ts",
